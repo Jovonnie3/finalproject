@@ -1,0 +1,114 @@
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=devive-width, initial-scale=1.0">
+    <title>Contact Info</title>
+    <link rel="stylesheet" href="styles.css">
+    
+     <script>
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const formData = new FormData(this);
+      const name = formData.get('name');
+      const email = formData.get('email');
+      const phone = formData.get('phone');
+      const message = formData.get('message');
+
+      fetch('apiv3.emailsys.net/v1', {
+        method: 'POST',
+        headers: {
+          'Content-Type': '/specs/public/ApiUsers_v1.json',
+          
+        },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          phone: phone,
+          message: message,
+        })
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to send verification email');
+        }
+        alert('Verification email sent successfully!');
+        
+        document.getElementById('contact-form').reset();
+      })
+      .catch(error => {
+        console.error('Error:', error.message);
+        alert('Failed to send verification email. Please try again later.');
+      });
+    });
+  </script>
+     <style>
+      img {
+      width: 50%; 
+    }
+       main {
+            text-align: center; /* Center-align the content */
+        }
+
+        form {
+            display: inline-block; 
+            text-align: left; 
+            padding: 20px; 
+            border: 2px solid cyan; 
+            border-radius: 20px; 
+            box-shadow: 0 0 10px white; 
+            background-color: pink;
+        }
+       label{
+          color: black;
+          font-weight: bold;
+        }
+        input[type="submit"] {
+    background-color: white; 
+    color: black; 
+    padding: 10px 20px; 
+    border: 2px solid cyan; 
+    border-radius: 5px; 
+    font-size: 16px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+    font-weight: bold; 
+    margin-top: 8px;
+  }
+
+
+  input[type="submit"]:hover {
+    background-color: skyblue; 
+  }
+  </style>
+  </head>
+  <body>
+    <h1>
+        Contact Information
+    </h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Homepage</a></li>
+        <li><a href="charities.html">Charities</a></li>
+        <li><a href="contact.html">Contact Info</a></li>
+      </ul>
+    </nav>
+     
+     <p>
+     Please enter your contact information to let our charity leaders know how to contact you!
+    </p>
+    <main>
+    <form action="submit_form.php" method="post">
+      <label for="name">Name:</label><br>
+      <input type="text" id="name" name="name" required><br>
+      <label for="email">Email:</label><br>
+      <input type="email" id="Email" name="email" required><br>
+     <label for="phone number">Phone Number:</label><br>
+      <input type="text" id="" name="phone number" required><br>
+      <label for="Message">Message:</label><br>
+      <textarea id="message" name="message"></textarea><br>
+      <input type="submit" value="Submit">
+      </form>
+    </main>
+  </body>
+</html>
