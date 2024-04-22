@@ -1,0 +1,71 @@
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=devive-width, initial-scale=1.0">
+    <title>Charities</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      
+      img {
+      margin: 0; 
+      float: left; 
+      clear: both; 
+      max-width: 100%; 
+      height: auto; 
+      width: 4%; 
+    }
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+    }
+    .grid-item {
+        background-color: pink;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 2px 3px 2px cyan;
+        text-align: center;
+    }
+    .grid-item a {
+        text-decoration: none;
+        color: white;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+        font-size: 20px; 
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    .grid-item :hover {
+            color: navy; /* Change text color on hover */
+        }
+</style>
+  </head>
+  <body>
+    <header>
+     
+      <h1>
+         <img src= "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIvV4_IgABQilZGFnvV2XsHiuieax3fnrSWw&s" alt= "help hub logo">
+        Charities Page
+      </h1>
+       <nav>
+    <ul>
+        <li><a href="index.html">Homepage</a></li>
+        <li><a href="charities.html">Charities</a></li>
+        <li><a href="contact.html">Contact Info</a></li>
+      </ul>
+    </nav>
+      <h2>
+        Choose a Charity:
+      </h2>
+    </header>
+    <main>
+      
+       <div class="grid-container">
+    <div class="grid-item"><a href="charity1.html">Sheltering Arms Alliance</a></div>
+    <div class="grid-item"><a href="charity2.html">Healing Hearts Foundation</a></div>
+    <div class="grid-item"><a href="charity3.html">Green Earth Initiative</a></div>
+    
+</div>
+    </main>
+  </body>
+</html>
